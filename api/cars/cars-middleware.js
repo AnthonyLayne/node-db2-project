@@ -1,12 +1,12 @@
-const CAR = require('./cars-model')
+const CAR = require("./cars-model");
 
-const checkCarId = (req, res, next) => {
+const checkCarId = async (req, res, next) => {
   // DO YOUR MAGIC
   try {
-    const cars = await CAR.getById(req.params.id)
-    res.json(cars)
-  } catch (err){
-    next(err)
+    const cars = await CAR.getById(req.params.id);
+    res.json(cars);
+  } catch (err) {
+    next(err);
   }
 };
 
