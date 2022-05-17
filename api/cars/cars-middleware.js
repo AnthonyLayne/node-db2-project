@@ -3,8 +3,13 @@ const CAR = require("./cars-model");
 const checkCarId = async (req, res, next) => {
   // DO YOUR MAGIC
   try {
-    const cars = await CAR.getById(req.params.id);
-    res.json(cars);
+    const car = await CAR.getById(req.params.id);
+    if (!car) {
+      next({ status: 404, message: "not found" });
+    } else {
+      req.car = car;
+      next();
+    }
   } catch (err) {
     next(err);
   }
