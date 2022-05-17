@@ -48,7 +48,7 @@ const checkVinNumberValid = (req, res, next) => {
   if (vinValidator.validate(req.body.vin)) {
     next();
   } else {
-    next({ status: 400, message: `vin ${req.body.vin} is invalad` });
+    next({ status: 400, message: `vin ${req.body.vin} is invalid` });
   }
 };
 
